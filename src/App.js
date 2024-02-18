@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Videoplayer from './videoplayer/Videoplayer';
+import { playvideos } from './Data/Videosdata';
+import Videocontainer from './Videocontainer/Videocontainer';
+import { useState } from 'react';
+
 
 function App() {
+  const [getvideo,setvideo]=useState(playvideos[0].videoURL);
+  const [getimages,setimages]=useState(playvideos[0].images);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Videoplayer getvideo={getvideo} getimages={getimages}></Videoplayer>
+      
+      <div className='lists-conatiner'>
+        <h1 className='PlayList-Header'>PlayList</h1>
+      {     playvideos.map((vid,index)=><Videocontainer key={vid.id} setvideo={setvideo} setimages={setimages} index={index} Title={vid.Title}></Videocontainer>)     }
+      
+      </div>
+      
+
     </div>
   );
 }

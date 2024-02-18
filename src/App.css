@@ -1,38 +1,214 @@
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 .App {
-  text-align: center;
+  //display: flex;
+ 
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.lists-conatiner {
+  width:70%;
+  margin:auto;
+  overflow-y: scroll;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PlayList-Header{
+  width:100%;
+  margin:0px auto;
+  display:flex;
+  justify-content:center;
+  color:white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
+.video-list {
+  width:100%%;
+  background:#FFB6C1  ;
+  height:10%;
+  border: 2px solid inherit;
+  border-radius: 20px;
+  padding:10px;
+  display:flex;
+  justify-content:center;
+  margin:10px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor:pointer;
+  overflow-y: scroll;
+  
+}
+.video-list:hover {
   color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+.video-container {
+  width:80%;
+  max-width:1000px;
+  display:flex;
+  justify-contents:center;
+  position: relative;
+  
+  
+  margin-inline:auto;
+
+}
+video {
+  width:100%;
+  border: 2px solid white;
+  border-radius: 25px;
+}
+.video-controllers {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:100;
+  color:white;
+  opacity:0;
+  transition:opacity 200ms ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.video-container:hover .video-controllers,
+.video-container:focus-within .video-controllers,
+.video-container.paused .video-controllers {
+  opacity:1;
+}
+.controller-features {
+  display:flex;
+  padding:0.25rem;
+  gap:0.1rem;
+  display:flex;
+  align-items:center;
+  
+  justify-content:space-between;
+  margin:0px auto;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.controller-features button {
+  background: none;
+  padding:0.3rem;
+  border:none;
+  
+  color:inherit;
+  font-size:30px;
+  cursor:pointer;
+  margin:0.2rem 0.5rem;
+  background:linear-gradient(to top, rgba(0,0,0,0.30),transparent);
+  
+  
 }
+.paused{
+  opacity:1;
+}
+
+.showTimer {
+  font-size:1.5rem;
+}
+
+.video-controllers::before {
+  display:flex;
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:100%;
+  aspect-ratio:8/1;
+  background:linear-gradient(to top, rgba(0,0,0,0.30),transparent);
+  z-index:-1;
+  pointer-events: none;
+  
+  
+
+}
+.video-container.fullscreen, 
+.video-container.theatre{
+  max-width:initial;
+  width: 100%;
+  
+  
+  background:black;
+  
+}
+.video-container.fullscreen {
+  height:100vh;
+}
+.video-container.theatre {
+  height:70vh;
+}
+
+/*.video-container.theatre .theatre-icon{
+  display:none;
+
+}
+.video-container.fullscreen .full-icon{
+display:none;
+}*/
+.play, 
+.pause{
+  color:white;
+ }
+/*
+ .volume-high-icon,
+ .volume-low-icon,
+ .volume-muted-icon {
+  display:none;
+ }
+
+ .video-container[data-volume-level="high"] .volume-high-icon {
+  display:block;
+ }
+ .video-container[data-volume-level="low"] .volume-low-icon {
+  display:block;
+ }
+ .video-container[data-volume-level="muted"] .volume-muted-icon {
+  display:block;
+ }*/
+ .volume-container {
+  display:flex;
+  align-items:center;
+ }
+
+ .volume-container .volume-slider {
+  width:0;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:width 400ms ease-in-out;
+ }
+ .volume-container:hover .volume-slider,
+ .volume-slider:focus-within {
+  width:100px;
+  transform:scaleX(1);
+  
+ }
+
+.video-seeker {
+  width:100%;
+}
+.video-seeker input {
+  width:100%;
+}
+@media (min-width: 320px) { 
+  .video-controllers {
+      font-size:1px;
+  }
+  .lists-conatiner {
+    font-size:10px;
+  }
+ }
+ @media (min-width: 425px) { 
+  .video-controllers {
+      font-size:1px;
+  }
+  .lists-conatiner {
+    font-size:15px;
+  }
+ }
+ @media (min-width: 768px) { 
+  .video-controllers {
+      font-size:1px;
+  }
+  .lists-conatiner {
+    font-size:20px;
+  }
+ }
