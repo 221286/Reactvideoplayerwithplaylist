@@ -12,7 +12,7 @@ export const Fullscreen = (screen, setscreen) => {
     const element = screen.current;
 
     if (!document.fullscreenElement) {
-// Create and dispatch a click event on the element
+
         const clickEvent = new MouseEvent('click', {
             view: window,
             bubbles: true,
@@ -20,7 +20,6 @@ export const Fullscreen = (screen, setscreen) => {
         });
         element.dispatchEvent(clickEvent);
 
-// If browser supports fullscreen, request it
         if (element.requestFullscreen) {
             element.requestFullscreen().then(() => {
                 setscreen(" fullscreen");
