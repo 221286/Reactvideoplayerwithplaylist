@@ -33,7 +33,7 @@
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/221286/Reactvideoplayerwithplaylist
 
 
 2. Navigate into the project directory
@@ -59,7 +59,7 @@ Additional Notes
 * This application was bootstrapped with Create React App.
 * For production deployment, you can build the application using npm run build
 
-Replace `<repository-url>` with the actual URL of your Git repository. This README provides clear instructions on how to install dependencies and start the application, along with additional notes for developers.
+"https://github.com/221286/Reactvideoplayerwithplaylist". This README provides clear instructions on how to install dependencies and start the application, along with additional notes for developers.
 
 
 
